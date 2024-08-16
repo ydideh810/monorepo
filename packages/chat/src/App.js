@@ -26,14 +26,13 @@ function App() {
 
     // if you are currently logging in
     if (isLoggedIn && !computer) {
-      setComputer(new Computer(config))
-      console.log('Bitcoin Computer created on chain ' + config.chain)
-      // if you are currently logging out
-    } else if (!isLoggedIn && computer) {
-      console.log('You have been logged out')
-      setComputer(null)
-    }
-  }, 5000)
+  setComputer(new Computer(config));
+  console.log(`Bitcoin Computer created on chain ${config.chain}`);
+  // if you are currently logging out
+} else if (!isLoggedIn && computer) {
+  console.log('You have been logged out');
+  setComputer(null);
+}
 
   useInterval(() => {
     const refresh = async () => {
