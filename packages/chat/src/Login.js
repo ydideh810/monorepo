@@ -11,18 +11,18 @@ function Login() {
     setLoggedIn(!!window.localStorage.getItem('BIP_39_KEY'))
   }, 500)
 
-  const login = (e) => {
+  const login = () => {
     e.preventDefault()
     window.localStorage.setItem('BIP_39_KEY', password)
     window.localStorage.setItem('USER_NAME', username)
     window.localStorage.setItem('CHAIN', chain)
   }
 
-  const logout = (e) => {
-    window.localStorage.removeItem('BIP_39_KEY')
-    window.localStorage.removeItem('USER_NAME')
-    window.localStorage.removeItem('CHAIN')
-  }
+  const logout = () => {
+  window.localStorage.removeItem('BIP_39_KEY');
+  window.localStorage.removeItem('USER_NAME');
+  window.localStorage.removeItem('CHAIN');
+}
 
   return loggedIn ? (
     <>
