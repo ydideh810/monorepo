@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+iimport React, { useState } from 'react'
 import useInterval from './useInterval'
 
 function Login() {
@@ -11,7 +11,7 @@ function Login() {
     setLoggedIn(!!window.localStorage.getItem('BIP_39_KEY'))
   }, 500)
 
-  const login = () => {
+  const login = (e) => {
     e.preventDefault()
     window.localStorage.setItem('BIP_39_KEY', password)
     window.localStorage.setItem('USER_NAME', username)
@@ -19,10 +19,10 @@ function Login() {
   }
 
   const logout = () => {
-  window.localStorage.removeItem('BIP_39_KEY');
-  window.localStorage.removeItem('USER_NAME');
-  window.localStorage.removeItem('CHAIN');
-}
+    window.localStorage.removeItem('BIP_39_KEY')
+    window.localStorage.removeItem('USER_NAME')
+    window.localStorage.removeItem('CHAIN')
+  }
 
   return loggedIn ? (
     <>
@@ -66,8 +66,7 @@ function Login() {
             </button>
           </form>
           <div>
-            {' '}
-            Need A Seed (Password?){' '}
+            Need A Seed (Password?) 
             <a _target="blank" href="https://iancoleman.io/bip39/">
               Click Here
             </a>
