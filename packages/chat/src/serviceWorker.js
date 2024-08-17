@@ -2,17 +2,17 @@ const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
   window.location.hostname === '[::1]' || // IPv6 localhost
   window.location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/) // IPv4 localhost
-);
+)
 
 export function unregister() {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.ready
       .then((registration) => {
-        registration.unregister();
+        registration.unregister()
       })
       .catch((error) => {
-        console.error(error.message);
-      });
+        console.error(error.message)
+      })
   }
 }
 
@@ -20,7 +20,7 @@ export function register(config) {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
     if (publicUrl.origin !== window.location.origin) {
-      return; // Prevent registration if origin doesn't match
+      return // Prevent registration if origin doesn't match
     }
 
     // Function declarations moved to the root of the function body
@@ -73,28 +73,28 @@ export function register(config) {
               });
             });
           } else {
-            registerValidSW(swUrl, configParam);
+            registerValidSW(swUrl, configParam)
           }
         })
         .catch(() => {
-          console.log('No internet connection found. App is running in offline mode.');
-        });
-    };
+          console.log('No internet connection found. App is running in offline mode.')
+        })
+    }
 
     window.addEventListener('load', () => {
-      const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
+      const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`
 
       if (isLocalhost) {
-        checkValidServiceWorker(swUrl, config);
+        checkValidServiceWorker(swUrl, config)
 
         navigator.serviceWorker.ready.then(() => {
           console.log(
             'This web app is being served cache-first by a service worker. To learn more, visit https://bit.ly/CRA-PWA'
-          );
-        });
+          )
+        })
       } else {
-        registerValidSW(swUrl, config);
+        registerValidSW(swUrl, config)
       }
-    });
+    })
   }
 }
